@@ -1,5 +1,6 @@
  body {
         background-image: url("/images/mix02.jpg");
+        text-align: center;
       }
       .frame {
         background-color: white;

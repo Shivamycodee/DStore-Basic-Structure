@@ -69,8 +69,9 @@ app.get("/import", (req, res) => {
 });
 
 app.post("/", upload.single("myViewFile"), (req, res) => {
-  res.send("Everything is good...");
-  main(fileName);   
+  main(fileName).then((response) => res.send(
+    `URL Gateway - ${response}`
+    ));
  fs.rm(_dirname +"\\uploads.txt\\"+fileName,(err,resolvedPath)=>{});
 });
 
@@ -101,10 +102,12 @@ async function main(fileName){
   const upload = await Storage.upload(
     fs.readFileSync(_dirname + '\\uploads.txt\\'+fileName)
   );
-  console.log(`Gateway URL - ${Storage.resolveScheme(upload)}`);
-
-  console.log(toHash(upload));
-
+  var url = Storage.resolveScheme(upload);
+  // console.log(`Gateway URL - ${url}`);
+   
+  // console.log(toHash(upload));
+  // console.log(url);
+  return url;
   // to fetch/download the file.
 
   // const res = await Storage.download(upload);
