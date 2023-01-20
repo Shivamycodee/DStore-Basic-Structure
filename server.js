@@ -18,7 +18,7 @@ app.set("view engine", "ejs");
 const __filename = fileURLToPath(import.meta.url);
 const _dirname = path.dirname(__filename);
 
-const port = 3000;
+const port = 3002;
 app.listen(port, () => {
   console.log(`Listening on the port ${port}.`);
 });
@@ -98,11 +98,12 @@ const Storage = new ThirdwebStorage();
 
 async function main(fileName){
   // to upload on gateway.ipfscdn.io
-
+  // console.log("imp data: ",fs.readFileSync(_dirname + "\\uploads.txt\\" + fileName));
+  console.log("imp data: ",_dirname + "\\uploads.txt\\" + fileName);
   const upload = await Storage.upload(
     fs.readFileSync(_dirname + '\\uploads.txt\\'+fileName)
   );
-  var url = Storage.resolveScheme(upload);
+  var url = Storage.resolveScheme(upload);  
   // console.log(`Gateway URL - ${url}`);
    
   // console.log(toHash(upload));
