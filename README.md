@@ -11,7 +11,7 @@ application based on IPFS system and smart contract to store user data
 <ol>
 <li>Clone the project to your system : <code> clone git https://github.com/Shivamycodee/DStore-Basic-Structure </code>
 <li> run : node server.js  or nodemon server.js </li>
-<li> now, open any of your brower and type url : https://localhost:3003 </li>
+<li> now, open any of your brower and type url : https://localhost:3002 </li>
 </ol>
 </br>
 
